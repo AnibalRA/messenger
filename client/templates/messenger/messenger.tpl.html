@@ -1,0 +1,41 @@
+<section id="main">
+    <div class="container">
+
+        <div class="card m-b-0" id="messages-main">
+            <ng-include src="'client/templates/menu.tpl.html'"></ng-include>
+
+            <div class="ms-body">
+                <div class="listview lv-message">
+                    <div class="lv-header-alt clearfix">
+                        <div id="ms-menu-trigger" ng-class="{ 'open': lvMenuStat }" ng-click="lvMenuStat = (lvMenuStat===true ? false : true )">
+                            <div class="line-wrap">
+                                <div class="line top"></div>
+                                <div class="line center"></div>
+                                <div class="line bottom"></div>
+                            </div>
+                        </div>
+
+                        <div class="lvh-label hidden-xs">
+                            <div class="lv-avatar pull-left">
+                                <img src="1.jpg" alt="">
+                            </div>
+                            <span class="c-black">{{ messenger.data | chatName }}</span>
+                        </div>
+
+                    </div>
+
+                    <ng-include src="'client/templates/messenger/chat.tpl.html'"></ng-include>
+
+                    <div class="clearfix"></div>
+
+                    <div class="lv-footer ms-reply">
+                        <textarea placeholder="What's on your mind..." ng-model="messenger.message" id="message" ng-focus="messenger.prueba()"></textarea>
+                        <button class="sendMessage" ng-click="messenger.sendMessage()" ng-if="messenger.message || messenger.message.length > 0"><i class="zmdi zmdi-mail-send"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer"><span>Copyright © 2015 Material Admin</span>
+</footer>

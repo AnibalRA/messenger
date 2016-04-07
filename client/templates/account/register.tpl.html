@@ -1,0 +1,65 @@
+<div class="lc-block" id="l-register" data-ng-class="{ 'toggled': account.showRegister === 1 }" data-ng-if="account.showRegister === 1">
+    <form name="formRegister">
+
+        <div class="input-group m-b-20">
+            <span class="input-group-addon" ng-class='{ error: formRegister.email.$invalid && !formRegister.$pristine, warning: formRegister.email.$error.email }'><i class="zmdi zmdi-account"></i></span>
+            <div class="fg-line">
+                <input type="text" name="nombre" class="form-control" ng-model="account.dataR.firstName" placeholder="Nombre" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="input-group m-b-20">
+            <span class="input-group-addon" ng-class='{ error: formRegister.apellido.$invalid && !formRegister.$pristine, warning: formRegister.apellido.$error.apellido }'><i class="zmdi zmdi-account"></i></span>
+            <div class="fg-line">
+                <input type="text" name="apellido" class="form-control" ng-model="account.dataR.lastName" placeholder="Apellido" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="input-group m-b-20">
+            <span class="input-group-addon" ng-class='{ error: formRegister.email.$invalid && !formRegister.$pristine, warning: formRegister.email.$error.email }'><i class="zmdi zmdi-email"></i></span>
+            <div class="fg-line">
+                <input type="email" name="email" class="form-control" ng-model="account.dataR.email" placeholder="Correo Electrónico" required autocomplete="off">
+            </div>
+        </div>
+
+        <div class="input-group m-b-20">
+            <span class="input-group-addon" ng-class='{ error: formRegister.password.$invalid && !formRegister.$pristine, warning: formRegister.password.$error.password }'><i class="zmdi zmdi-eye-off"></i></span>
+            <div class="fg-line">
+                <input type="password" name="password" class="form-control" ng-model="account.dataR.password" placeholder="Contraseña" required>
+            </div>
+        </div>
+
+        <div class="cp-container">
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-invert-colors"></i></span><!--
+                <div class="fg-line dropdown" uib-dropdown>
+                    <input type="text" class="form-control cp-value" ng-model="account.dataR.color" uib-dropdown-toggle>
+
+                    <div class="dropdown-menu">
+                        <ng-farbtastic ng-model="account.dataR.color"></ng-farbtastic>
+                    </div>
+
+                    <i class="cp-value" style="background-color: {{ account.dataR.color }}"></i>
+                </div>-->
+                <div class="fg-line">
+                    <input type="text" class="form-control cp-value dropdown-toggle" ng-model="account.dataR.color" data-toggle="dropdown">
+
+                    <div class="dropdown-menu">
+                        <ng-farbtastic ng-model="account.dataR.color"></ng-farbtastic>
+                    </div>
+
+                    <i class="cp-value" style="background-color: {{ account.dataR.color }}"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <button type="submit" class="btn btn-login btn-danger btn-float" ng-disabled='!formRegister.$valid' ng-click="account.crear()"><i class="zmdi zmdi-arrow-forward"></i></button>
+
+    </form>
+    <ul class="login-navigation">
+        <li data-block="#l-login" class="bgm-green" ng-click="account.showRegister = 0; account.showLogin = 1">Login</li>
+        <li data-block="#l-forget-password" class="bgm-orange" ng-click="account.showRegister = 0; account.showForgot = 1">Forgot Password?</li>
+    </ul>
+
+</div>

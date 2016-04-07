@@ -1,0 +1,9 @@
+<a href="#" ng-click="account.logout()">logout</a> | <a href="/profile">Profile</a> | <a href="/chats">Messenger</a>
+<br>
+<br>
+<div class="contacts" ng-repeat="user in contacts.users">
+    <h2>{{user.profile.firstName}}</h2>
+    <p>Hey there! I am using meteor-Whatsapp with meteor.</p>
+    <br>
+    <button ng-click="contacts.newChat(user._id)">New Chat</button>
+</div>

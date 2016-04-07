@@ -1,0 +1,12 @@
+<a href="#" ng-click="account.logout()">logout</a> | <a href="/profile">Profile</a> | <a href="/contacts">Contacts</a>
+<br>
+<br>
+<div class="chat" ng-repeat="chat in msn.data | orderBy:'-lastMessage.timestamp'">
+    <img class="img-chat" ng-src="{{chat | chatPicture }}">
+    <h2>{{chat | chatName }}</h2>
+    <p>{{chat.lastMessage.text}}</p>
+    <span>{{chat.lastMessage.timestamp | calendar}}</span>
+    <span>{{chat._id}}</span>
+    <br>
+    <a href="#" ng-click="msn.remove(chat)">Delete</a> | <a href="/chats/{{chat._id}}">Detail</a>
+</div>

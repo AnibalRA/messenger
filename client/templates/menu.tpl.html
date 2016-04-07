@@ -1,0 +1,37 @@
+<div class="ms-menu" ng-class="{ 'toggled': lvMenuStat }" ng-controller="menuCtrl as menuCtrl">
+    <div class="ms-block">
+        <div class="ms-user">
+            <div class="lv-avatar pull-left" ng-style="{background: menuCtrl.color}" style="font-size: 15px">{{ menuCtrl.firstName.charAt(0)  + menuCtrl.lastName.charAt(0) }}</div>
+            <div>{{ menuCtrl.firstName }}
+                <br> {{ menuCtrl.email }} </div>
+        </div>
+    </div>
+
+    <div class="listview lv-user m-t-20">
+
+        <div class="pm-overview c-overflow" ng-show="!menuCtrl.private">
+
+            <div class="lv-item media" ng-repeat="user in menuCtrl.users" ng-click="menuCtrl.newChat(user._id)">
+                <div class="lv-avatar pull-left" ng-style="{background: menuCtrl.color}">{{ user.profile.firstName.charAt(0)  + user.profile.lastName.charAt(0) }}</div>
+                <div class="media-body">
+                    <div class="lv-title">{{ user.profile.firstName }}</div>
+                    <div class="lv-small">{{ user.emails[0].address }}</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="pm-overview c-overflow" ng-show="menuCtrl.private">
+
+            <div class="lv-item media" ng-repeat="chat in menuCtrl.data | orderBy:'-lastMessage.timestamp'" ng-click="menuCtrl.chatDetail(chat._id)" ng-class="{'active': !chat.lastMessage.viewed }">
+                <div class="lv-avatar pull-left" ng-style="{background: chat.lastMessage.color }" style="font-size: 15px">{{chat | chatFirst}} {{chat | chatLast}}</div>
+                <div class="media-body">
+                    <div class="lv-title">{{ chat | chatName }}</div>
+                    <div class="lv-small">{{ chat.lastMessage.text }}</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

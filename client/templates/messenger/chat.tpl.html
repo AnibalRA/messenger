@@ -1,0 +1,13 @@
+<div class="lv-body">
+    <div class="lv-item media" ng-repeat="chat in messenger.messages" ng-class="chat.userId === $root.currentUser._id ? 'right' : ''">
+        <div class="lv-avatar" ng-class="chat.userId === $root.currentUser._id ? 'pull-right' : 'pull-left'">
+            <img src="4.jpg" alt="">
+        </div>
+        <div class="media-body">
+            <div class="ms-item">
+                {{ chat.text }}
+            </div>
+            <small class="ms-date"> <i class="zmdi zmdi-time"> </i> {{ chat.timestamp | amDateFormat:'HH:mm'}} </small>
+        </div>
+    </div>
+</div>

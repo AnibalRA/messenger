@@ -1,0 +1,38 @@
+<section id="main">
+	<div class="container">
+
+		<div class="card m-b-0" id="messages-main">
+			<ng-include src="'client/templates/menu.tpl.html'"></ng-include>
+
+			<div class="ms-body">
+				<div class="listview lv-message">
+					<div class="lv-header-alt clearfix">
+						<div id="ms-menu-trigger" ng-class="{ 'open': lvMenuStat }" ng-click="lvMenuStat = (lvMenuStat===true ? false : true )">
+							<div class="line-wrap">
+								<div class="line top"></div>
+								<div class="line center"></div>
+								<div class="line bottom"></div>
+							</div>
+						</div>
+
+						<div class="lvh-label hidden-xs">
+							
+								<div class="lv-avatar pull-left" ng-style="{background: perfil.color}" style="font-size: 15px">{{ perfil.firstName.charAt(0) + perfil.lastName.charAt(0) }}</div>
+							
+							<span class="c-black">{{ perfil.firstName }}</span>
+						</div>
+
+					</div>
+
+					<div class="lv-body"></div>
+
+					<div class="clearfix"></div>
+
+					<div class="lv-footer ms-reply" style="height: 75px;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<footer id="footer"><span>Copyright © 2015 Material Admin</span>
+</footer>

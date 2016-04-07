@@ -1,0 +1,25 @@
+<div class="lc-block" id="l-login" ng-class="{ 'toggled': account.showLogin === 1 }" ng-if="account.showLogin === 1">
+    <form name="formLogin">
+        <div class="input-group m-b-20">
+            <span class="input-group-addon" ng-class='{ error: formLogin.email.$invalid && !formLogin.$pristine, warning: formLogin.email.$error.email }'><i class="zmdi zmdi-email"></i></span>
+            <div class="fg-line">
+                <input type="email" name="email" class="form-control" ng-model="account.dataL.email" placeholder="Correo Electrónico" required autocomplete="off">
+            </div>
+        </div>
+
+        <div class="input-group m-b-20">
+            <span class="input-group-addon" ng-class='{ error: formLogin.password.$invalid && !formLogin.$pristine, warning: formLogin.password.$error.password }'><i class="zmdi zmdi-eye-off"></i></span>
+            <div class="fg-line">
+                <input type="password" name="password" class="form-control" ng-model="account.dataL.password" placeholder="Contraseña" required>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <button type="submit" class="btn btn-login btn-danger btn-float" ng-disabled='!formLogin.$valid' ng-click="account.login()"><i class="zmdi zmdi-arrow-forward"></i></button>
+    </form>
+
+    <ul class="login-navigation">
+        <li data-block="#l-register" class="bgm-red" ng-click="account.showLogin = 0; account.showRegister = 1">Register</li>
+        <li data-block="#l-forget-password" class="bgm-orange" ng-click="account.showLogin = 0; account.showForgot = 1">Forgot Password?</li>
+    </ul>
+
+</div>
